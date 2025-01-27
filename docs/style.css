@@ -57,34 +57,6 @@
 }
 
 .hqgvLZ {
-  background-color: #191919 !important;
-}
-
-.hEydLL a,
-.hEydLL a:visited,
-.hEydLL a:hover {
-  background-color: #191919 !important;
-}
-
-.hLpUhH {
-  color: #ffffff !important;
-  background-color: #191919 !important;
-}
-
-.emrRcd {
-  background-color: #191919 !important;
-}
-
-.bCTehv {
-  color: #ffffff !important;
-  background-color: #191919 !important;
-}
-
-.emrRcd {
-  color: #ffffff !important;
-}
-
-.jdxQrI > .react-tabs__tab-panel {
   background: rgb(59, 29, 46) !important;
   background: linear-gradient(
     115deg,
@@ -93,17 +65,75 @@
   ) !important ;
 }
 
-.bCOLCR {
+.hEydLL a,
+.hEydLL a:visited,
+.hEydLL a:hover {
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
+}
+
+.hLpUhH {
+  color: #ffffff !important;
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
+}
+
+.emrRcd {
   background-color: #191919 !important;
 }
 
-.fTsuzH {
+.bCTehv {
+  color: #ffffff !important;
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
+}
+
+.emrRcd {
+  color: #ffffff !important;
+}
+
+.jdxQrI > .react-tabs__tab-panel {
   background-color: #191919 !important;
+}
+
+.bCOLCR {
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
+}
+
+.fTsuzH {
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
 }
 
 .eCnHhM {
   color: #ffffff !important;
-  background-color: #191919 !important;
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
 }
 
 .iPPdF {
