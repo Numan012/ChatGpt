@@ -1,0 +1,4 @@
+# Dir for bundles
+node_modules
+.env
+
