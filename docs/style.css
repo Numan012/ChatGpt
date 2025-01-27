@@ -81,3 +81,12 @@
 .emrRcd {
   color: #ffffff !important;
 }
+
+.jdxQrI > .react-tabs__tab-panel {
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important;
+}
