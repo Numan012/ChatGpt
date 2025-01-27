@@ -67,6 +67,7 @@
 }
 
 .hLpUhH {
+  color: #ffffff !important;
   background-color: #191919 !important;
 }
 
@@ -103,4 +104,29 @@
 .eCnHhM {
   color: #ffffff !important;
   background-color: #191919 !important;
+}
+
+.iPPdF {
+  padding: 0.9em !important;
+  padding-top: 20px !important;
+}
+
+.bFIVui {
+  top: 0px;
+}
+
+.hEydLL a,
+.hEydLL a:visited,
+.hEydLL a:hover {
+  color: #ffffff !important;
+}
+
+.iZJLLY {
+  background: rgb(59, 29, 46) !important;
+  background: linear-gradient(
+    115deg,
+    rgba(59, 29, 46, 1) 0%,
+    rgba(31, 30, 51, 1) 100%
+  ) !important ;
+  color: #ffffff !important;
 }
