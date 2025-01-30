@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://dashboard.sms2u.io"
+      "url": "http://localhost:3000"
     }
   ],
   "security": [
@@ -15,16 +15,36 @@
     }
   ],
   "paths": {
-    "/api/yourApiKey/yourPhoneNumber": {
-      "get": {
+    "/api/account/general/loginClearPlay": {
+      "post": {
         "tags": [
-          "Get Started"
+          "AccountSettings"
         ],
-        "summary": "Get Meesages Via Secret Key",
-        "description": "This endpoint is named \"Get Messages Via Secret Key.\" It utilizes a GET request method that's used to retrieve data from a server. The endpoint URL is \"https://dashboard.sms2u.io\"; this is the location where the request will be sent. Do note that 'yourApiKey' and 'number' appear to be placeholders, which you need to replace with your actual API key/secret and any number you want to pass.\n\nThis request does not include any specific headers or body content since it's a GET method that's typically used to retrieve information without necessarily sending any data.\n\nThe authentication type for this request is a bearer token. Bearer tokens are security keys that a client application must pass in the Authentication header to prove an identity. In this case, the key name is \"token,\" and the value should be your actual \"BearerToken.\" The format for passing this token is typically: 'Authorization: Bearer YourActualToken'. Remember to replace 'YourActualToken' with your real bearer token to authenticate correctly when making HTTP requests to the server.",
+        "summary": "Account - General - Login Email all nsns",
+        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+              }
+            }
+          }
+        },
         "security": [
           {
             "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Client-UUID",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ClientUUID"
           }
         ],
         "responses": {
@@ -52,19 +72,19 @@
               "Content-Length": {
                 "schema": {
                   "type": "integer",
-                  "example": "220"
+                  "example": "518"
                 }
               },
               "ETag": {
                 "schema": {
                   "type": "string",
-                  "example": "W/\"dc-hnI/LNgp8MRgfUpaZLu9hhApIWg\""
+                  "example": "W/\"206-b3OQDEnGC+KJmh5o+pCyAkiEpDg\""
                 }
               },
               "Date": {
                 "schema": {
                   "type": "string",
-                  "example": "Thu, 23 Jan 2025 11:15:17 GMT"
+                  "example": "Fri, 17 Jan 2025 13:11:36 GMT"
                 }
               },
               "Connection": {
@@ -86,28 +106,26 @@
                   "type": "object"
                 },
                 "example": {
-                  "messages": [
-                    {
-                      "_id": "678f80ee27829f049b3937c1",
-                      "body": "How Are You?",
-                      "from": "sender phone number",
-                      "to": "receiver phone number",
-                      "dateReceived": "2025-01-21T11:11:42.912Z"
-                    },
-                    {
-                      "_id": "678f80ee27829f049b3927c1",
-                      "body": "Are you using sms2u?",
-                      "from": "sender phone number",
-                      "to": "receiver phone number",
-                      "dateReceived": "2025-01-21T11:13:42.912Z"
-                    }
-                  ]
+                  "success": true,
+                  "message": "Login successful",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjI3MjI4MDEtNjA5NS00YWRkLThlODMtZWQ2NDNjOTBhNGQzIiwicGhvbmVubyI6IisxMzEyMzQ3NTMxMyIsImlhdCI6MTczNzExOTQ5NiwiZXhwIjoxNzM3MjA1ODk2fQ.uc5t6lY3o8049Vr8nD8-FYDqo0djG8rXsa5iIoeRZE4",
+                  "user": {
+                    "_id": "b2722801-6095-4add-8e83-ed643c90a4d3",
+                    "phoneno": "+13123475313",
+                    "firstname": "test",
+                    "lastname": "user",
+                    "email": "testingemai755125@gmail.com",
+                    "zipcode": "12345",
+                    "dob": "1998-12-31T19:00:00.000Z",
+                    "lang": "en"
+                  },
+                  "accessCode": true
                 }
               }
             }
           },
-          "404": {
-            "description": "Not Found",
+          "401": {
+            "description": "Unauthorized",
             "headers": {
               "X-Powered-By": {
                 "schema": {
@@ -130,19 +148,19 @@
               "Content-Length": {
                 "schema": {
                   "type": "integer",
-                  "example": "45"
+                  "example": "49"
                 }
               },
               "ETag": {
                 "schema": {
                   "type": "string",
-                  "example": "W/\"2d-hHv8Rbm/ij2cLl9JYZdm1h3pIXg\""
+                  "example": "W/\"31-VmptvJVCxgMiCaKMQdd9IkNBIdc\""
                 }
               },
               "Date": {
                 "schema": {
                   "type": "string",
-                  "example": "Thu, 23 Jan 2025 11:31:55 GMT"
+                  "example": "Fri, 17 Jan 2025 13:15:21 GMT"
                 }
               },
               "Connection": {
@@ -165,7 +183,535 @@
                 },
                 "example": {
                   "success": false,
-                  "message": "User Not Found!"
+                  "message": "Invalid credentials"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/account/general/loginClearBefore": {
+      "post": {
+        "tags": [
+          "AccountSettings"
+        ],
+        "summary": "Account - General - Login Email all nsns",
+        "description": "Here's a detailed description of the provided data in the endpoint request:\nhttp://localhost:3000/api/account/general/loginClearBefore\nThis is the URL where the request will be sent. It's a local server (localhost:3000) used for API testing or development purposes. The endpoint seems to be related to clearing login information or session data before a new login attempt.\nPOST\nThe request method is POST, which is used to send data to the server. This indicates that the endpoint likely involves modifying server state or submitting data for processing, such as clearing login data or starting a new session.\nThe Client-UUID header is sent with the request, and its value is ClientUUID. This header could be used for identifying the client or device making the request. It helps the server know which client (based on a unique ID) is interacting with the system.\nThis body suggests that the request is related to a login process where the server verifies the user's credentials.\nThe request includes bearer authentication, which means it’s sending a token in the authorization header to authenticate the request. The BearerToken value will be a placeholder for the actual token that authenticates the user's session or permissions.\nThis endpoint is likely designed to handle login procedures where a user submits their email and password, and it clears any existing session or login information before allowing the new login attempt. The client is identified using a Client-UUID header, and the request is authenticated using a bearer token, ensuring that only authorized users can perform the action.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Client-UUID",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ClientUUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "518"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"206-b3OQDEnGC+KJmh5o+pCyAkiEpDg\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:11:36 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Login successful",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjI3MjI4MDEtNjA5NS00YWRkLThlODMtZWQ2NDNjOTBhNGQzIiwicGhvbmVubyI6IisxMzEyMzQ3NTMxMyIsImlhdCI6MTczNzExOTQ5NiwiZXhwIjoxNzM3MjA1ODk2fQ.uc5t6lY3o8049Vr8nD8-FYDqo0djG8rXsa5iIoeRZE4",
+                  "user": {
+                    "_id": "b2722801-6095-4add-8e83-ed643c90a4d3",
+                    "phoneno": "+13123475313",
+                    "firstname": "test",
+                    "lastname": "user",
+                    "email": "testingemai755125@gmail.com",
+                    "zipcode": "12345",
+                    "dob": "1998-12-31T19:00:00.000Z",
+                    "lang": "en"
+                  },
+                  "accessCode": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "49"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"31-VmptvJVCxgMiCaKMQdd9IkNBIdc\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:15:21 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Invalid credentials"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/account/general/loginClearUpdate": {
+      "post": {
+        "tags": [
+          "AccountSettings"
+        ],
+        "summary": "Account - General - Login Email yesssss",
+        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearBefore:\nThis POST request is used for logging in a user and clearing or resetting any session or playback state before the user logs in or interacts with the system.\nThe body of the request is a JSON object containing the following two key-value pairs:\n\"email\": The email address of the user who is attempting to log in. It should be a valid email format. The placeholder value \"email\" should be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. It should be a string containing the password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: This endpoint is used to log in the user and clear any session or playback state before the user logs in, ensuring that there’s no residual state or session data that could interfere with the login process.\nOutcome: Upon sending a valid request with the correct credentials, the server will authenticate the user, reset or clear any previous session or media state, and prepare the user’s environment for a clean login.\nIn essence, this endpoint prepares the environment by clearing the session or playback data before proceeding with the login process itself. This ensures that when the user logs in, they are starting from a clean slate.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearUpdate:\nThis is a POST request used to log in a user and perform a session or state update while clearing any previous session or media data associated with the user.\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": The email address of the user who is trying to log in. The value should be a valid email format. The placeholder value \"email\" needs to be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. The value should be a string containing the user's password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearUpdate endpoint is intended to log in the user and simultaneously clear or reset any session or playback data, while also performing an update on the user’s session or state.\nOutcome: After the request is sent with valid user credentials, the server will authenticate the user, clear any previous session or media playback state, and update the user's session with the latest data or settings.\nThis is useful when you want to ensure that any prior session or media state is cleared and the user's environment is updated before they proceed with their activities post-login.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Client-UUID",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ClientUUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "518"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"206-b3OQDEnGC+KJmh5o+pCyAkiEpDg\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:11:36 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Login successful",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjI3MjI4MDEtNjA5NS00YWRkLThlODMtZWQ2NDNjOTBhNGQzIiwicGhvbmVubyI6IisxMzEyMzQ3NTMxMyIsImlhdCI6MTczNzExOTQ5NiwiZXhwIjoxNzM3MjA1ODk2fQ.uc5t6lY3o8049Vr8nD8-FYDqo0djG8rXsa5iIoeRZE4",
+                  "user": {
+                    "_id": "b2722801-6095-4add-8e83-ed643c90a4d3",
+                    "phoneno": "+13123475313",
+                    "firstname": "test",
+                    "lastname": "user",
+                    "email": "testingemai755125@gmail.com",
+                    "zipcode": "12345",
+                    "dob": "1998-12-31T19:00:00.000Z",
+                    "lang": "en"
+                  },
+                  "accessCode": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "49"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"31-VmptvJVCxgMiCaKMQdd9IkNBIdc\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:15:21 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Invalid credentials"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/account/general/loginClearNew": {
+      "post": {
+        "tags": [
+          "AccountSettings"
+        ],
+        "summary": "Account - General - Login Email Numan",
+        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearBefore:\nThis POST request is used for logging in a user and clearing or resetting any session or playback state before the user logs in or interacts with the system.\nThe body of the request is a JSON object containing the following two key-value pairs:\n\"email\": The email address of the user who is attempting to log in. It should be a valid email format. The placeholder value \"email\" should be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. It should be a string containing the password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: This endpoint is used to log in the user and clear any session or playback state before the user logs in, ensuring that there’s no residual state or session data that could interfere with the login process.\nOutcome: Upon sending a valid request with the correct credentials, the server will authenticate the user, reset or clear any previous session or media state, and prepare the user’s environment for a clean login.\nIn essence, this endpoint prepares the environment by clearing the session or playback data before proceeding with the login process itself. This ensures that when the user logs in, they are starting from a clean slate.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearUpdate:\nThis is a POST request used to log in a user and perform a session or state update while clearing any previous session or media data associated with the user.\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": The email address of the user who is trying to log in. The value should be a valid email format. The placeholder value \"email\" needs to be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. The value should be a string containing the user's password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearUpdate endpoint is intended to log in the user and simultaneously clear or reset any session or playback data, while also performing an update on the user’s session or state.\nOutcome: After the request is sent with valid user credentials, the server will authenticate the user, clear any previous session or media playback state, and update the user's session with the latest data or settings.\nThis is useful when you want to ensure that any prior session or media state is cleared and the user's environment is updated before they proceed with their activities post-login.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearNew:\nThis is a POST request used to log in a user and clear or reset any session or playback data, while handling a new login scenario (likely implying a fresh session).\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": This field contains the email address of the user who is attempting to log in. The value should be a valid email format. The placeholder \"email\" should be replaced with the actual email address of the user.\n\"password\": This field contains the password associated with the user’s account. It should be a string containing the user's password. The placeholder \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearNew endpoint is designed to log in the user, reset any existing session or playback data, and possibly initiate a new state for the user’s session. The term \"New\" in the endpoint suggests that this action is intended to ensure a fresh start for the user, free from any prior session or state information.\nOutcome: When the request is sent with valid credentials, the server will authenticate the user, clear any existing session data (such as ongoing playback or previous session states), and start a new clean session for the user. This action is especially useful when ensuring that the login experience is not impacted by previous user states.\nThis is helpful when you need to guarantee a fresh environment for the user without any previous state affecting their experience.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Client-UUID",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ClientUUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "518"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"206-b3OQDEnGC+KJmh5o+pCyAkiEpDg\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:11:36 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Login successful",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjI3MjI4MDEtNjA5NS00YWRkLThlODMtZWQ2NDNjOTBhNGQzIiwicGhvbmVubyI6IisxMzEyMzQ3NTMxMyIsImlhdCI6MTczNzExOTQ5NiwiZXhwIjoxNzM3MjA1ODk2fQ.uc5t6lY3o8049Vr8nD8-FYDqo0djG8rXsa5iIoeRZE4",
+                  "user": {
+                    "_id": "b2722801-6095-4add-8e83-ed643c90a4d3",
+                    "phoneno": "+13123475313",
+                    "firstname": "test",
+                    "lastname": "user",
+                    "email": "testingemai755125@gmail.com",
+                    "zipcode": "12345",
+                    "dob": "1998-12-31T19:00:00.000Z",
+                    "lang": "en"
+                  },
+                  "accessCode": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "49"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"31-VmptvJVCxgMiCaKMQdd9IkNBIdc\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 17 Jan 2025 13:15:21 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Invalid credentials"
                 }
               }
             }
