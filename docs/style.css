@@ -27,10 +27,24 @@
   --spacing-unit: 6px;
 
   --background-color-19: #191919;
+  --text-color: #fff;
+  --background-for-gradient: rgb(59, 29, 46);
+  --background-gradient: linear-gradient(
+    115deg,
+    rgb(20 15 18) 0%,
+    rgba(31, 30, 51, 1) 100%
+  );
 }
 
 .darkMode {
   --background-color-19: #fff;
+  --text-color: #000;
+  --background-for-gradient: rgb(147, 237, 199);
+  --background-gradient: linear-gradient(
+    115deg,
+    rgba(147, 237, 199, 1) 0%,
+    rgba(28, 216, 210, 1) 100%
+  );
 }
 
 :root.dark {
@@ -60,42 +74,42 @@
 #themeToggle {
   position: fixed;
   top: 15px;
-  right: 15px;
+  right: 25px;
+  z-index: 9;
+  background: var(--background-gradient);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .sc-eWnToP {
   background-color: #000 !important;
-  color: #fff !important;
+  color: var(--text-color) !important;
 }
 
 .hqgvLZ {
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .hEydLL a,
 .hEydLL a:visited,
 .hEydLL a:hover {
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .hLpUhH {
-  color: #ffffff !important;
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgb(20 15 18) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important;
+  color: var(--text-color) !important;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important;
 }
 
 .emrRcd {
@@ -107,30 +121,26 @@
 }
 
 .bCTehv {
-  color: #ffffff !important;
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  color: var(--text-color) !important;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .emrRcd {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .bpmBWn {
-  color: #ffffff !important;
-  border: 1px solid #ffffff !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--text-color) !important;
 }
 
 .jcAmZH {
-  background-color: white !important;
+  background-color: var(--text-color) !important;
 }
 
 .khIKSp {
-  background-color: white !important;
+  background-color: var(--text-color) !important;
 }
 
 .jdxQrI > .react-tabs__tab-panel {
@@ -138,31 +148,19 @@
 }
 
 .bCOLCR {
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .fTsuzH {
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .eCnHhM {
-  color: #ffffff !important;
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
+  color: var(--text-color) !important;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
 }
 
 .iPPdF {
@@ -177,37 +175,33 @@
 .hEydLL a,
 .hEydLL a:visited,
 .hEydLL a:hover {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .iZJLLY {
-  background: rgb(59, 29, 46) !important;
-  background: linear-gradient(
-    115deg,
-    rgba(59, 29, 46, 1) 0%,
-    rgba(31, 30, 51, 1) 100%
-  ) !important ;
-  color: #ffffff !important;
+  background: var(--background-for-gradient) !important;
+  background: var(--background-gradient) !important ;
+  color: var(--text-color) !important;
 }
 
 .cDPDUw {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .dmLkmF {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .kudwlS {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .kfOTos {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .dYAYxd {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .sc-hKFxyN {
@@ -216,11 +210,11 @@
 
 .fgRoXk {
   background-color: var(--background-color-19) !important;
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .kfOTos {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .dYAYxd a {
@@ -228,21 +222,21 @@
 }
 
 .kudwlS {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .iupIzr {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .jVZBMd {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .hrCtnr {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }
 
 .lRfdj {
-  color: #ffffff !important;
+  color: var(--text-color) !important;
 }

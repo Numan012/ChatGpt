@@ -9,7 +9,10 @@
       href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <!--
     ReDoc doesn't change outer page styles
@@ -22,16 +25,25 @@
     </style>
   </head>
   <body class="">
-    <button id="themeToggle">Theme Toggle</button>
+    <button id="themeToggle">
+      <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
     <redoc spec-url="dist.json"></redoc>
 
     <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"></script>
     <script>
       const button = document.getElementById("themeToggle");
+      const icon = document.getElementById("themeIcon");
       const body = document.body;
 
       button.addEventListener("click", () => {
         body.classList.toggle("darkMode");
+
+        if (body.classList.contains("darkMode")) {
+          icon.classList.replace("fa-moon", "fa-sun"); // Change to sun icon
+        } else {
+          icon.classList.replace("fa-sun", "fa-moon"); // Change back to moon icon
+        }
       });
     </script>
   </body>
