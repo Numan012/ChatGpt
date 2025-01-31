@@ -86,7 +86,7 @@
 }
 
 .sc-eWnToP {
-  background-color: #000 !important;
+  background-color: var(--background-color-19) !important;
   color: var(--text-color) !important;
 }
 
@@ -109,11 +109,13 @@
 }
 
 .emrRcd {
-  background-color: var(--background-color-19) !important;
+  /* background-color: var(--background-color-19) !important; */
+  background-color: orange !important;
 }
 
 .fkfFYQ {
-  background-color: var(--background-color-19) !important;
+  /* background-color: var(--background-color-19) !important; */
+  background-color: yellow !important;
 }
 
 .bCTehv {
@@ -201,11 +203,13 @@
 }
 
 .sc-hKFxyN {
-  background-color: var(--background-color-19);
+  /* background-color: var(--background-color-19) !important; */
+  background-color: red !important;
 }
 
 .fgRoXk {
-  background-color: var(--background-color-19) !important;
+  /* background-color: var(--background-color-19) !important; */
+  background-color: brown !important;
   color: var(--text-color) !important;
 }
 
