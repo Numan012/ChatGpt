@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:8080"
     }
   ],
   "security": [
@@ -15,19 +15,23 @@
     }
   ],
   "paths": {
-    "/api/account/general/loginClearPlay": {
+    "/admin/createAdmin": {
       "post": {
         "tags": [
-          "AccountSettings"
+          "AccountSetting"
         ],
-        "summary": "Account - General - Login Email all nsns",
-        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.",
+        "summary": "createAdmin",
+        "description": "Endpoint Description for createAdmin\nThis endpoint is used to create a new admin user within the system. Below is a detailed description of each part of the request:\nMethod: POST\nURL: http://localhost:8080/admin/createAdmin\nThe body contains the data required to create the admin user, structured in JSON format:\nemail:\npassword:\nuserName:\nThese parameters are included in the URL and provide additional context for the operation:\nlocationId:\nsessionId:\naccountId:\nType: Bearer Token",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+                "type": "object",
+                "example": {
+                  "email": "testingemail89899@gmail.com",
+                  "password": "Admin123!",
+                  "userName": "John Doe"
+                }
               }
             }
           }
@@ -45,6 +49,30 @@
               "type": "string"
             },
             "example": "ClientUUID"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "locationId"
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "sessionId"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "accountId"
           }
         ],
         "responses": {
@@ -191,19 +219,23 @@
         }
       }
     },
-    "/api/account/general/loginClearBefore": {
+    "/admin/createAdmin/latest": {
       "post": {
         "tags": [
-          "AccountSettings"
+          "AccountSetting"
         ],
-        "summary": "Account - General - Login Email all nsns",
-        "description": "Here's a detailed description of the provided data in the endpoint request:\nhttp://localhost:3000/api/account/general/loginClearBefore\nThis is the URL where the request will be sent. It's a local server (localhost:3000) used for API testing or development purposes. The endpoint seems to be related to clearing login information or session data before a new login attempt.\nPOST\nThe request method is POST, which is used to send data to the server. This indicates that the endpoint likely involves modifying server state or submitting data for processing, such as clearing login data or starting a new session.\nThe Client-UUID header is sent with the request, and its value is ClientUUID. This header could be used for identifying the client or device making the request. It helps the server know which client (based on a unique ID) is interacting with the system.\nThis body suggests that the request is related to a login process where the server verifies the user's credentials.\nThe request includes bearer authentication, which means it’s sending a token in the authorization header to authenticate the request. The BearerToken value will be a placeholder for the actual token that authenticates the user's session or permissions.\nThis endpoint is likely designed to handle login procedures where a user submits their email and password, and it clears any existing session or login information before allowing the new login attempt. The client is identified using a Client-UUID header, and the request is authenticated using a bearer token, ensuring that only authorized users can perform the action.",
+        "summary": "createAdmin",
+        "description": "This is a POST request used to create a new admin user through an API at the endpoint http://localhost:8080/admin/createAdmin/latest.\nThis POST request is designed to create a new admin user. The client sends a request with necessary headers (like the Client-UUID), a body containing admin details (email, password, and username), query parameters for location, session, and account details, and an authentication token for authorization. The response should confirm whether the admin creation was successful or provide an error if there were issues with the request.",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+                "type": "object",
+                "example": {
+                  "email": "testingemail89899@gmail.com",
+                  "password": "Admin123!",
+                  "userName": "John Doe"
+                }
               }
             }
           }
@@ -221,6 +253,30 @@
               "type": "string"
             },
             "example": "ClientUUID"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "locationId"
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "sessionId"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "accountId"
           }
         ],
         "responses": {
@@ -367,19 +423,23 @@
         }
       }
     },
-    "/api/account/general/loginClearUpdate": {
+    "/admin/createAdmin/newest": {
       "post": {
         "tags": [
-          "AccountSettings"
+          "AccountSetting"
         ],
-        "summary": "Account - General - Login Email yesssss",
-        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearBefore:\nThis POST request is used for logging in a user and clearing or resetting any session or playback state before the user logs in or interacts with the system.\nThe body of the request is a JSON object containing the following two key-value pairs:\n\"email\": The email address of the user who is attempting to log in. It should be a valid email format. The placeholder value \"email\" should be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. It should be a string containing the password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: This endpoint is used to log in the user and clear any session or playback state before the user logs in, ensuring that there’s no residual state or session data that could interfere with the login process.\nOutcome: Upon sending a valid request with the correct credentials, the server will authenticate the user, reset or clear any previous session or media state, and prepare the user’s environment for a clean login.\nIn essence, this endpoint prepares the environment by clearing the session or playback data before proceeding with the login process itself. This ensures that when the user logs in, they are starting from a clean slate.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearUpdate:\nThis is a POST request used to log in a user and perform a session or state update while clearing any previous session or media data associated with the user.\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": The email address of the user who is trying to log in. The value should be a valid email format. The placeholder value \"email\" needs to be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. The value should be a string containing the user's password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearUpdate endpoint is intended to log in the user and simultaneously clear or reset any session or playback data, while also performing an update on the user’s session or state.\nOutcome: After the request is sent with valid user credentials, the server will authenticate the user, clear any previous session or media playback state, and update the user's session with the latest data or settings.\nThis is useful when you want to ensure that any prior session or media state is cleared and the user's environment is updated before they proceed with their activities post-login.",
+        "summary": "createAdmin",
+        "description": "This is a POST request used to create a new admin user through an API at the endpoint http://localhost:8080/admin/createAdmin/latest.\nThis POST request is designed to create a new admin user. The client sends a request with necessary headers (like the Client-UUID), a body containing admin details (email, password, and username), query parameters for location, session, and account details, and an authentication token for authorization. The response should confirm whether the admin creation was successful or provide an error if there were issues with the request.\nThis is a POST request for creating a new admin user via an API at the endpoint http://localhost:8080/admin/createAdmin/newest. This request is used to add a new administrator to the system.",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+                "type": "object",
+                "example": {
+                  "email": "testingemail89899@gmail.com",
+                  "password": "Admin123!",
+                  "userName": "John Doe"
+                }
               }
             }
           }
@@ -397,6 +457,30 @@
               "type": "string"
             },
             "example": "ClientUUID"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "locationId"
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "sessionId"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "accountId"
           }
         ],
         "responses": {
@@ -543,19 +627,23 @@
         }
       }
     },
-    "/api/account/general/loginClearNew": {
+    "/admin/createAdmin/generation": {
       "post": {
         "tags": [
-          "AccountSettings"
+          "AccountSetting"
         ],
-        "summary": "Account - General - Login Email Numan",
-        "description": "Here's a detailed description of the provided data in the endpoint:\nThis is a POST request used to clear the \"play\" status or session for a user's account during the login process.\nThe body of the request is a JSON object with two key-value pairs:\n\"email\": This is the email address of the user who is attempting to log in. It should be a valid email format. The provided placeholder value is \"email\".\n\"password\": This is the password associated with the user’s account. It should be a string containing the user's password. The provided placeholder value is \"password\".\nExample:\nExample:\nExample:\nPurpose: This endpoint is likely intended to \"clear\" or reset any ongoing session or playback activity when a user logs in. The exact behavior of loginClearPlay depends on how the backend handles the email and password to authenticate the user and reset any prior session or media-related state associated with the user.\nOutcome: Once the request is made with the proper credentials, the server will authenticate the user, and any \"play\" or session-related state will be cleared or reset.\nThis endpoint will ensure that when users log in, they are not interacting with any previous sessions or playback data from before they logged in.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearBefore:\nThis POST request is used for logging in a user and clearing or resetting any session or playback state before the user logs in or interacts with the system.\nThe body of the request is a JSON object containing the following two key-value pairs:\n\"email\": The email address of the user who is attempting to log in. It should be a valid email format. The placeholder value \"email\" should be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. It should be a string containing the password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: This endpoint is used to log in the user and clear any session or playback state before the user logs in, ensuring that there’s no residual state or session data that could interfere with the login process.\nOutcome: Upon sending a valid request with the correct credentials, the server will authenticate the user, reset or clear any previous session or media state, and prepare the user’s environment for a clean login.\nIn essence, this endpoint prepares the environment by clearing the session or playback data before proceeding with the login process itself. This ensures that when the user logs in, they are starting from a clean slate.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearUpdate:\nThis is a POST request used to log in a user and perform a session or state update while clearing any previous session or media data associated with the user.\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": The email address of the user who is trying to log in. The value should be a valid email format. The placeholder value \"email\" needs to be replaced with the actual email address of the user.\n\"password\": The password associated with the user’s account. The value should be a string containing the user's password. The placeholder value \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearUpdate endpoint is intended to log in the user and simultaneously clear or reset any session or playback data, while also performing an update on the user’s session or state.\nOutcome: After the request is sent with valid user credentials, the server will authenticate the user, clear any previous session or media playback state, and update the user's session with the latest data or settings.\nThis is useful when you want to ensure that any prior session or media state is cleared and the user's environment is updated before they proceed with their activities post-login.\nHere’s a detailed description of the provided data for the endpoint POST http://localhost:3000/api/account/general/loginClearNew:\nThis is a POST request used to log in a user and clear or reset any session or playback data, while handling a new login scenario (likely implying a fresh session).\nThe body of the request is a JSON object containing the following key-value pairs:\n\"email\": This field contains the email address of the user who is attempting to log in. The value should be a valid email format. The placeholder \"email\" should be replaced with the actual email address of the user.\n\"password\": This field contains the password associated with the user’s account. It should be a string containing the user's password. The placeholder \"password\" should be replaced with the actual password for the user.\nExample:\nExample:\nExample:\nPurpose: The loginClearNew endpoint is designed to log in the user, reset any existing session or playback data, and possibly initiate a new state for the user’s session. The term \"New\" in the endpoint suggests that this action is intended to ensure a fresh start for the user, free from any prior session or state information.\nOutcome: When the request is sent with valid credentials, the server will authenticate the user, clear any existing session data (such as ongoing playback or previous session states), and start a new clean session for the user. This action is especially useful when ensuring that the login experience is not impacted by previous user states.\nThis is helpful when you need to guarantee a fresh environment for the user without any previous state affecting their experience.",
+        "summary": "createAdmin",
+        "description": "This is a POST request used to create a new admin user through an API at the endpoint http://localhost:8080/admin/createAdmin/latest.\nThis POST request is designed to create a new admin user. The client sends a request with necessary headers (like the Client-UUID), a body containing admin details (email, password, and username), query parameters for location, session, and account details, and an authentication token for authorization. The response should confirm whether the admin creation was successful or provide an error if there were issues with the request.\nThis is a POST request for creating a new admin user via an API at the endpoint http://localhost:8080/admin/createAdmin/newest. This request is used to add a new administrator to the system.\nThis POST request is used to create a new admin user by sending the admin’s details in the body (email, password, and username), including query parameters for location, session, and account information, and using a bearer token for authentication. The client must provide the correct Client-UUID header, as well as a valid BearerToken for authorization. The server will then process the creation of the new admin account. If successful, a confirmation is expected; otherwise, an error will be returned.\nThis POST request is used to create a new admin user in the system via the API endpoint http://localhost:8080/admin/createAdmin/generation. The request sends admin information, including the email, password, and username, and requires certain query parameters and authentication to proceed.",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "example": "\"{\\\"email\\\":\\\"email\\\",\\\"password\\\":\\\"password\\\"}\""
+                "type": "object",
+                "example": {
+                  "email": "testingemail89899@gmail.com",
+                  "password": "Admin123!",
+                  "userName": "John Doe"
+                }
               }
             }
           }
@@ -573,6 +661,30 @@
               "type": "string"
             },
             "example": "ClientUUID"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "locationId"
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "sessionId"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "accountId"
           }
         ],
         "responses": {
