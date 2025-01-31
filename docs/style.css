@@ -39,12 +39,8 @@
 .darkMode {
   --background-color-19: #fff;
   --text-color: #000;
-  --background-for-gradient: rgb(147, 237, 199);
-  --background-gradient: linear-gradient(
-    115deg,
-    rgba(147, 237, 199, 1) 0%,
-    rgba(28, 216, 210, 1) 100%
-  );
+  --background-for-gradient: #56ccf2;
+  --background-gradient: linear-gradient(115deg, #56ccf2 0%, #2f80ed 100%);
 }
 
 :root.dark {
@@ -144,7 +140,7 @@
 }
 
 .jdxQrI > .react-tabs__tab-panel {
-  background-color: var(--background-color-19) !important;
+  /* background-color: var(--background-color-19) !important; */
 }
 
 .bCOLCR {
