@@ -26,6 +26,7 @@
 
   --spacing-unit: 6px;
 
+  --mian-background-color: #191919;
   --background-color-19: #191919;
   --text-color: #fff;
   --background-for-gradient: rgb(59, 29, 46);
@@ -37,10 +38,15 @@
 }
 
 .darkMode {
+  --mian-background-color: #dde6ed;
   --background-color-19: #fff;
   --text-color: #000;
-  --background-for-gradient: #56ccf2;
-  --background-gradient: linear-gradient(115deg, #56ccf2 0%, #2f80ed 100%);
+  --background-for-gradient: rgb(157, 178, 191);
+  --background-gradient: linear-gradient(
+    115deg,
+    rgba(157, 178, 191, 1) 0%,
+    rgba(82, 109, 130, 1) 100%
+  );
 }
 
 :root.dark {
@@ -109,13 +115,11 @@
 }
 
 .emrRcd {
-  /* background-color: var(--background-color-19) !important; */
-  background-color: orange !important;
+  background-color: var(--background-color-19) !important;
 }
 
 .fkfFYQ {
-  /* background-color: var(--background-color-19) !important; */
-  background-color: yellow !important;
+  background-color: var(--background-color-19) !important;
 }
 
 .bCTehv {
@@ -202,14 +206,14 @@
   color: var(--text-color) !important;
 }
 
+/* Main Backgound Class */
 .sc-hKFxyN {
-  /* background-color: var(--background-color-19) !important; */
-  background-color: red !important;
+  background-color: var(--mian-background-color) !important;
+  /* background-color: #dde6ed !important; */
 }
 
 .fgRoXk {
-  /* background-color: var(--background-color-19) !important; */
-  background-color: brown !important;
+  background-color: var(--background-color-19) !important;
   color: var(--text-color) !important;
 }
 
